@@ -3,19 +3,20 @@ import { ChildArea } from "./ChildArea";
 import "./styles.css";
 
 export default function App() {
-  const [count, setCount] = useState(0);
+  console.log("aa");
+  const [text, setText] = useState("");
+  const [open, setOpen] = useState(false);
 
-  const onClickCountUp = () => {
-    setCount(count + 1);
-  };
+  const onChnageText = (e) => setText(e.target.value);
+  const onClickOpen = () => setOpen(!open);
 
   return (
     <div className="App">
-      <input />
+      <input value={text} onChange={onChnageText} />
       <br />
       <br />
-      <button>表示</button>
-      <ChildArea />
+      <button onClick={onClickOpen}>表示</button>
+      <ChildArea open={open} />
     </div>
   );
 }
